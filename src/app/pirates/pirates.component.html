@@ -1,0 +1,37 @@
+<div *ngIf="displayPirates">
+    <p>A pirate is, broadly speaking, any professional criminal that operates wholly or partially on the world's seas,
+     especially people conducting robbery by ship. In most, if not all, cases they lead or belong to a group 
+     of like-minded criminals, known as a crew.
+    </p>
+    <br>
+    <p>Though not the only existing type of criminal, pirates appear to comprise most of the world's significant bounty heads, 
+        and—with the possible exception of the Revolutionary Army—constitute the strongest opposition to the authority of 
+        the World Government and Marines.
+    </p>
+
+
+<h2>Pirates Crew</h2>
+<ul class="pirate-crew">
+  <li *ngFor="let pirate of pirates">
+    <button [class.selected]="pirate === selectedPirate" type="button" (click)="onSelect(pirate)">
+      <span class="badge">{{pirate.id}}</span>
+      <span class="name">{{pirate.name}}</span>
+    </button>
+  </li>
+</ul>
+
+
+<!-- 
+<div *ngIf="selectedPirate">
+
+    <h2>{{selectedPirate.name | uppercase}} Details</h2>
+    <div>id: {{selectedPirate.id}}</div>
+    <div>
+      <label for="pirate-crew-name">Pirate Crew name: </label>
+      <input id="pirate-crew-name" [(ngModel)]="selectedPirate.name" placeholder="name">
+    </div>
+  
+  </div> -->
+
+</div>
+

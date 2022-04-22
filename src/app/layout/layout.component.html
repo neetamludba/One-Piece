@@ -1,0 +1,47 @@
+
+    
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" routerLink="/" >
+              <img
+                width="100"
+                alt="One Piece Logo"
+                src="https://th.bing.com/th/id/R.816c79d251726a0de313011309281a74?rik=3GnIkyeMN6EPdg&riu=http%3a%2f%2fpluspng.com%2fimg-png%2fone-piece-png-one-piece-logo-png-photos-639.png&ehk=KGdG%2bVI0dIS1mTrW5TkYYBhvoO5a%2fjiW8Y%2bSnmAaXMg%3d&risl=&pid=ImgRaw&r=0"
+            /></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" routerLink="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" routerLink="/marines">Marines</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" routerLink="/pirates">Pirates</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" routerLink="/revolutionary-army">Revolutionary Army</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="flex-shrink-0">
+      <div class="container">
+        <router-outlet></router-outlet>
+      </div>
+    </main>
+    <footer class="footer mt-auto py-3 bg-light">
+      <div class="container">
+        <span> Love One Piece?&nbsp;
+            <a href="https://twitter.com/OnePieceAnime" target="_blank" rel="noopener"> Tweet about us.
+            </a></span>
+        <span class="text-muted">&copy; 2022</span>
+      </div>
+    </footer>
+
