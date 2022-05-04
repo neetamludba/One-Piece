@@ -12,24 +12,24 @@
         the "One Piece" in order to become the next King of the Pirates.</p>
   
     <div class="card-container">
-      <button class="card" type="button" label="buttonMarines" (click)="marinesDisplay()"><span>Marines</span>
+      <button class="card" type="button" label="buttonMarines" routerLink="/marines" routerLinkActive="active"><span>Marines</span>
       </button>
           
-      <button class="card" type="button" label="buttonPirates" (click)="piratesDisplay()"><span>Pirates</span>
+      <button class="card" type="button" label="buttonPirates" routerLink="/pirates" routerLinkActive="active"><span>Pirates</span>
       </button>
   
-      <button class="card" type="button" label="buttonRArmy" (click)="rArmyDisplay()"><span>Revolutionary Army</span>
+      <button class="card" type="button" label="buttonRArmy" routerLink="/revolutionary-army" routerLinkActive="active"><span>Revolutionary Army</span>
       </button>      
   
       
   
     </div>
   
-    <div>
+    <!-- <div>
       <marines [displayMarines] ="displayVarMarines"></marines>
       <pirates [displayPirates] ="displayVarPirates"></pirates>
       <revolutionary-army [displayRevolutionaryArmy] ="displayVarRArmy"></revolutionary-army>
-    </div>
+    </div> -->
   
   
   </div>

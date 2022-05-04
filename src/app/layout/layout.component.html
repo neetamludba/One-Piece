@@ -1,28 +1,30 @@
 
     
 <mat-sidenav-container class="">
-  <mat-sidenav mode="side" opened>
-    <a class="navbar-brand" routerLink="/" >
-      <img
-        width="100"
-        alt="One Piece Logo"
-        src="https://th.bing.com/th/id/R.816c79d251726a0de313011309281a74?rik=3GnIkyeMN6EPdg&riu=http%3a%2f%2fpluspng.com%2fimg-png%2fone-piece-png-one-piece-logo-png-photos-639.png&ehk=KGdG%2bVI0dIS1mTrW5TkYYBhvoO5a%2fjiW8Y%2bSnmAaXMg%3d&risl=&pid=ImgRaw&r=0"
+  <mat-sidenav class="sidenav" mode="side" opened>
+    <div style="text-align: center;">
+      <a class="navbar-brand" routerLink="/" >
+        <img
+          width="100"
+          alt="One Piece Logo"
+          src="https://th.bing.com/th/id/R.816c79d251726a0de313011309281a74?rik=3GnIkyeMN6EPdg&riu=http%3a%2f%2fpluspng.com%2fimg-png%2fone-piece-png-one-piece-logo-png-photos-639.png&ehk=KGdG%2bVI0dIS1mTrW5TkYYBhvoO5a%2fjiW8Y%2bSnmAaXMg%3d&risl=&pid=ImgRaw&r=0"
         />
       </a>
-    <ul class="">
-      <li class="">
-        <a class=""  routerLink="/" routerLinkActive="active">Home</a>
-      </li>
-      <li class="">
-        <a class=""  routerLink="/marines" routerLinkActive="active">Marines</a>
-      </li>
-      <li class="">
-        <a class=""  routerLink="/pirates" routerLinkActive="active">Pirates</a>
-      </li>
-      <li class="">
-        <a class=""  routerLink="/revolutionary-army" routerLinkActive="active">Revolutionary Army</a>
-      </li>
-    </ul>
+    </div>
+   
+    <div class="nav-item" routerLink="/" routerLinkActive="active">
+      <h3>Home</h3>
+    </div>
+    <div class="nav-item" routerLink="/marines" routerLinkActive="active">
+      <h3>Marines</h3>
+    </div>
+    <div class="nav-item" routerLink="/pirates" routerLinkActive="active">
+      <h3>Pirates</h3>
+    </div>
+    <div class="nav-item" routerLink="/revolutionary-army" routerLinkActive="active">
+      <h3>Revolutionary Army</h3>
+    </div>   
+    
   </mat-sidenav>
   <mat-sidenav-content>
     <router-outlet></router-outlet>
