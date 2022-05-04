@@ -1,7 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-
-
 @Component({
   selector: 'marines',
   templateUrl: './marines.component.html',
@@ -9,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class MarinesComponent implements OnInit {
   
-  constructor() { }
+  constructor(){ }
 
   ngOnInit(): void {
   }

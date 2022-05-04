@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { LayoutComponent } from './layout/layout.component';
 import { MarinesComponent } from './marines/marines.component';
 import { PiratesComponent } from './pirates/pirates.component';
 import { RevolutionaryArmyComponent } from './revolutionary-army/revolutionary-army.component';
@@ -11,7 +10,7 @@ import { HomeComponent } from './home/home.component';
 const routes: Routes = [
   {
     path:'',
-    component: LayoutComponent,
+    component: HomeComponent,
     pathMatch: 'full',
   },
   {
