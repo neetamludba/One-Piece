@@ -3,23 +3,24 @@
   }
   
   .sidenav {
-    width: 200px;
-    margin-top: 20px;
+    width: 160px;
   }
   
   .sidenav .mat-toolbar {
     background: inherit;
   }
-  
+  .sidenav-image{
+    margin-top: 20px;
+    margin-bottom: 15px;
+    text-align: center;
+  }
 .nav-item{
   cursor: pointer;
-  background-color: rgba(204, 193, 193, 0.514);
-  margin: 1px;
-  border-radius: 5px;
-  text-align: center;
-  height: 33px;
-  border: 1px;
-  color: rgb(184, 53, 53);
+  background-color: rgba(225, 228, 234, 0.514);
+  font-size: 16px;
+  margin: 5px;
+  height: 40px;
+  color: rgb(226, 69, 69);
 }
   .mat-toolbar.mat-primary {
     position: sticky;
