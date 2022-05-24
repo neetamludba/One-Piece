@@ -1,0 +1,27 @@
+<div class="main-content">
+  <div class="mat-elevation-z8">
+    <mat-card>
+      <mat-card-content>
+        <form class="pirateform" [formGroup]="piratesDetailForm">
+          <mat-form-field appearance="fill">
+            <mat-label>Pirate Crew Name</mat-label>
+            <input matInput required formControlName="pirateCrewName" />
+            <mat-error *ngIf="piratesDetailForm.get('pirateCrewName')?.errors">
+              {{ showErrorMessage("pirateCrewName") }}
+            </mat-error>
+          </mat-form-field>
+          <br><br>
+          <mat-checkbox formControlName="active" >Active</mat-checkbox>
+        </form>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-flat-button 
+          (click)="closeForm()">Cancel</button>
+        <button mat-flat-button 
+          color="primary" 
+          [disabled]="!piratesDetailForm.valid || !piratesDetailForm.dirty"
+          (click)="saveForm()">Save</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

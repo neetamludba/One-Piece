@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { MarinesComponent } from './marines/marines.component';
-import { PiratesComponent } from './pirates/pirates.component';
+import { PiratesListComponent } from './pirates/pirates-list/pirates-list.component'; 
+import { PiratesDetailComponent } from './pirates/pirates-detail/pirates-detail.component';
 import { RevolutionaryArmyComponent } from './revolutionary-army/revolutionary-army.component';
 import { HomeComponent } from './home/home.component';
 
@@ -27,7 +28,13 @@ const routes: Routes = [
    
   { 
     path:'pirates',
-    component: PiratesComponent,
+    component: PiratesListComponent,
+    pathMatch: 'full',
+  },
+  
+  { 
+    path:'pirates/create',
+    component: PiratesDetailComponent,
     pathMatch: 'full',
   },
   { 

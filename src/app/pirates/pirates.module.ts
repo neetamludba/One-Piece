@@ -1,0 +1,35 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+import { PiratesListComponent } from './pirates-list/pirates-list.component';
+import { PiratesDetailComponent } from './pirates-detail/pirates-detail.component';
+
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTableModule }  from '@angular/material/table';
+import { MatInputModule } from '@angular/material/input';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { RouterModule } from '@angular/router';
+
+
+
+@NgModule({
+  declarations: [
+    PiratesListComponent,
+    PiratesDetailComponent  
+  ],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatSortModule,
+    MatTableModule,
+    MatInputModule,
+    MatCheckboxModule,
+    RouterModule
+  ]
+})
+export class PiratesModule { }
