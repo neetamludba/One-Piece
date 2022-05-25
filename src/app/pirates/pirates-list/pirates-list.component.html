@@ -1,71 +1,79 @@
-<div class="content">
+<div class="main-content">
+  <div class="mat-elevation-z8">
+    <div class="content"> 
+    <h2>Pirates</h2>
 
-  <h2>Pirates</h2>
-
-  <div>  
-    <p>
-      A pirate is, broadly speaking, any professional criminal that operates wholly or partially on the world's seas,
-      especially people conducting robbery by ship. In most, if not all, cases they lead or belong to a group 
-      of like-minded criminals, known as a crew.
-    </p>
-    <br>
-    <p>
-      Though not the only existing type of criminal, pirates appear to comprise most of the world's significant bounty heads, 
-      and—with the possible exception of the Revolutionary Army—constitute the strongest opposition to the authority of 
-      the World Government and Marines.
-    </p>
-  
-  </div>
-
-
-  <div class="container">
+     
+      <p>
+        A pirate is, broadly speaking, any professional criminal that operates wholly or partially on the world's seas,
+        especially people conducting robbery by ship. In most, if not all, cases they lead or belong to a group 
+        of like-minded criminals, known as a crew.
+      </p>
+      <br>
+      <p>
+        Though not the only existing type of criminal, pirates appear to comprise most of the world's significant bounty heads, 
+        and—with the possible exception of the Revolutionary Army—constitute the strongest opposition to the authority of 
+        the World Government and Marines.
+      </p>
     
-
-      <h2>Pirates Crew Form</h2>
-      <form #pirateCrewForm="">
-        <div class="form-group">
-          <label for="crewname">Crew Name</label>
-          <input type="text" class="form-control" id="crewname"
-                 required>        
-        </div>
-
-        <div class="form-group">
-          <label for="captainname">Captain Name</label>
-          <input type="text" class="form-control" id="captainname"
-                 required>
-        </div>
-  
-        <div class="form-group">
-          <label for="captain_rank">Captain Rank</label>
-          <select class="form-control" id="captain_rank"
-                  required>
-            <option *ngFor="let rank of captain_rank" [value]="rank">{{rank}}</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="shipname">Ship Name</label>
-          <input type="text" class="form-control" id="shipname"
-                 required>
-        </div>
-
-        <div class="form-group">
-          <label for="totalmembers">Total Members</label>
-          <input type="number" class="form-control" id="totalmembers"
-                 required>
-        </div>
-  
-        <!-- <button type="button" class="btn btn-success" 
-        [disabled]="!pirateCrewForm.form.valid" 
-        (click)="add(crewname.value); crewname.value=''">
-        Add Pirate Crew</button> -->
-  
-      </form>
     
 
     <h2>Pirates Crew</h2>
-    <ul class="pirate_crew">
-      </ul>
-     
   </div>
+    <div class="filterBar">
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
+          placeholder="Filter"
+          (keyup)="doFilter($any($event).target.value)"
+        />
+      </mat-form-field>
+      <button mat-mini-fab color="primary" (click)="createPirateCrew()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+    <table class="listtable" mat-table [dataSource]="dataSource" matSort>
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+      </ng-container>
+ 
+      <ng-container matColumnDef="Active">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Active</th>
+        <td mat-cell *matCellDef="let element">
+          <mat-checkbox disabled [checked]="element.Active"> </mat-checkbox>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="createdDate">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Created Date</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.createdDate | date }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let element">
+          <a
+            class="iconbutton"
+            [routerLink]="['/pirates', element.categoryID]"
+            mat-icon-button
+          >
+            <mat-icon color="primary">edit</mat-icon>
+          </a>
+          <button class="iconbutton" mat-icon-button>
+            <mat-icon color="warn">delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+
+
+  </div>
+ 
 </div>

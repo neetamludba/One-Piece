@@ -15,8 +15,10 @@ export class PiratesDetailComponent implements OnInit {
     private router: Router
     ) {}
 
+    captain_rank = ['Pirate King', 'Emperor','Warlord of Sea', 'Supernova'];
+
     piratesDetailForm = new FormGroup({
-      pirateCrewNmae: new FormControl(null, [
+      pirateCrewName: new FormControl(null, [
         Validators.required,
         Validators.minLength(5),
       ])

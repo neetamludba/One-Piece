@@ -9,6 +9,12 @@ export class PiratesService {
 
   constructor() { }
 
+  async getAllPirateCrew() {
+    return GetService('pirates')
+      .then((pirateCrew) => pirateCrew)
+      .catch((ex) => console.log(ex));
+  }
+
   async getPirateCrew(pirateCrewId: number) {
     return GetService('pirates/' + pirateCrewId)
       .then((pirateCrew) => pirateCrew)
