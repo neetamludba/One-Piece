@@ -133,8 +133,8 @@ th.mat-sort-header-sorted {
 }
 
 .active-list-item {
-  /* color: #3f51b5 !important; Note: You could also use a custom theme */
-}
+   /* color: #3f51b5 !important; Note: You could also use a custom theme  */
+} 
 .errorBar {
   padding-left: 10px;
   padding-right: 10px;

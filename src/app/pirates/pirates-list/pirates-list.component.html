@@ -2,8 +2,6 @@
   <div class="mat-elevation-z8">
     <div class="content"> 
     <h2>Pirates</h2>
-
-     
       <p>
         A pirate is, broadly speaking, any professional criminal that operates wholly or partially on the world's seas,
         especially people conducting robbery by ship. In most, if not all, cases they lead or belong to a group 
@@ -15,9 +13,6 @@
         and—with the possible exception of the Revolutionary Army—constitute the strongest opposition to the authority of 
         the World Government and Marines.
       </p>
-    
-    
-
     <h2>Pirates Crew</h2>
   </div>
     <div class="filterBar">
@@ -34,19 +29,32 @@
       </button>
     </div>
     <table class="listtable" mat-table [dataSource]="dataSource" matSort>
-      <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+      <ng-container matColumnDef="crew_name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Pirate Crew Name</th>
         <td mat-cell *matCellDef="let element">{{ element.name }}</td>
       </ng-container>
- 
-      <ng-container matColumnDef="Active">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Active</th>
-        <td mat-cell *matCellDef="let element">
-          <mat-checkbox disabled [checked]="element.Active"> </mat-checkbox>
-        </td>
+
+      <ng-container matColumnDef="captain_name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Captain Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.name }}</td>
       </ng-container>
 
-      <ng-container matColumnDef="createdDate">
+      <ng-container matColumnDef="captain_rank">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Captain Rank</th>
+        <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="ship_name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Ship Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="total_members">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Total Members</th>
+        <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="created_date">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Created Date</th>
         <td mat-cell *matCellDef="let element">
           {{ element.createdDate | date }}

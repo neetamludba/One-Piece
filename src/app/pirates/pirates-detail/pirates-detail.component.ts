@@ -15,13 +15,30 @@ export class PiratesDetailComponent implements OnInit {
     private router: Router
     ) {}
 
-    captain_rank = ['Pirate King', 'Emperor','Warlord of Sea', 'Supernova'];
+    // captain_rank = ['Pirate King', 'Emperor','Warlord of Sea', 'Supernova'];
 
     piratesDetailForm = new FormGroup({
-      pirateCrewName: new FormControl(null, [
+      PirateCrewName: new FormControl(null, [
         Validators.required,
         Validators.minLength(5),
+      ]),
+      CaptainName: new FormControl(null, [
+        Validators.required,
+        Validators.minLength(5),
+      ]),
+      CaptainRank: new FormControl(null, [
+        Validators.required,
+        Validators.minLength(5),
+      ]),
+      ShipName: new FormControl(null, [
+        Validators.required,
+        Validators.minLength(5),
+      ]),
+      TotalMembers: new FormControl(null, [
+        Validators.required,
+        Validators.minLength(2),
       ])
+      
 
     });
 
@@ -40,8 +57,8 @@ export class PiratesDetailComponent implements OnInit {
     let errors = this.piratesDetailForm.get(fieldName)?.errors;
 
     if (errors) {
-      if (errors['required']) return 'Pirate crew name is required';
-      if (errors['minlength']) return 'Pirate crew must be 5 characters long';
+      if (errors['required']) return '*Required';
+      if (errors['minlength']) return 'Must be 5 characters long';
       return '';
     } else return '';
   }
@@ -49,8 +66,11 @@ export class PiratesDetailComponent implements OnInit {
   getPirateCrew(pirateCrewId: number){
     this.piratesService.getPirateCrew(pirateCrewId).then((pirateCrew) => {
       this.piratesDetailForm.setValue({
-        pirateCrewName: pirateCrew.name,
-        active: pirateCrew.Active,
+        PirateCrewName: pirateCrew.crew_name,
+        CaptainName: pirateCrew.captain_name,
+        CaptainRank: pirateCrew.captain_rank,
+        ShipName: pirateCrew.ship_name,
+        TotalMembers: pirateCrew.total_members,
       });
     });
   }
@@ -60,8 +80,11 @@ export class PiratesDetailComponent implements OnInit {
 
     this.piratesService.saveForm(
         {
-          name: this.piratesDetailForm.get('pirateCrewName')?.value,
-          Active: Boolean(this.piratesDetailForm.get('active')?.value),
+          crew_name: this.piratesDetailForm.get('PirateCrewName')?.value,
+          captain_name: this.piratesDetailForm.get('CaptainName')?.value,
+          captain_rank: this.piratesDetailForm.get('CaptainRank')?.value,
+          ship_name: this.piratesDetailForm.get('ShipName')?.value,
+          total_members: Number(this.piratesDetailForm.get('TotalMembers')?.value),
         },
         this.pirateCrewId
       )

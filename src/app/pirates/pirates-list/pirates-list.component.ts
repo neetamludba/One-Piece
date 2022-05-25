@@ -3,14 +3,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { Router } from '@angular/router';
 import { PiratesService } from '../pirates.service';
+import { Pirate_Crew } from 'src/app/Pirate';
 
-
-export interface PirateCrew {
-  categoryID: number;
-  name: string;
-  Active: boolean;
-  createdDate: string;
-}
 
 @Component({
   selector: 'pirates-list',
@@ -24,8 +18,8 @@ export class PiratesListComponent implements AfterViewInit {
     private router: Router
   ) { }
 
-  displayedColumns: string[] = ['name', 'Active', 'createdDate', 'actions'];
-  dataSource = new MatTableDataSource<PirateCrew>([]);
+  displayedColumns: string[] = ['crew_name','captain_name','captain_rank','ship_name','total_members', 'created_date', 'actions'];
+  dataSource = new MatTableDataSource<Pirate_Crew>([]);
 
   
   @ViewChild(MatSort)
@@ -33,7 +27,7 @@ export class PiratesListComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     this.piratesService.getAllPirateCrew().then((pirateCrew) => {
-      this.dataSource = new MatTableDataSource<PirateCrew>(pirateCrew);
+      this.dataSource = new MatTableDataSource<Pirate_Crew>(pirateCrew);
       this.dataSource.sort = this.sort;
     })
   }

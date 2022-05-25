@@ -7,6 +7,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { MatButtonModule } from '@angular/material/button';
+
 import { AppComponent } from './app.component';
 import { PiratesModule } from './pirates/pirates.module';
 import { MarinesComponent } from './marines/marines.component';
@@ -33,6 +35,7 @@ import { HomeComponent } from './home/home.component';
     MatSidenavModule,
     CommonModule,
     HttpClientModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

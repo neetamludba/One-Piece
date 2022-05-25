@@ -5,22 +5,53 @@
         <form class="pirateform" [formGroup]="piratesDetailForm">
           <mat-form-field appearance="fill">
             <mat-label>Pirate Crew Name</mat-label>
-            <input matInput required formControlName="pirateCrewName" />
-            <mat-error *ngIf="piratesDetailForm.get('pirateCrewName')?.errors">
-              {{ showErrorMessage("pirateCrewName") }}
+            <input matInput required formControlName="PirateCrewName" />
+            <mat-error *ngIf="piratesDetailForm.get('PirateCrewName')?.errors">
+              {{ showErrorMessage("PirateCrewName") }}
             </mat-error>
           </mat-form-field>
-          <br><br>
-          <mat-checkbox formControlName="active" >Active</mat-checkbox>
+          <br>
+          <mat-form-field appearance="fill">
+            <mat-label>Captain Name</mat-label>
+            <input matInput required formControlName="CaptainName" />
+            <mat-error *ngIf="piratesDetailForm.get('CaptainName')?.errors">
+              {{ showErrorMessage("CaptainName") }}
+            </mat-error>
+          </mat-form-field>
+          <br>
+          <mat-form-field appearance="fill">
+            <mat-label>Captain Rank</mat-label>
+            <input matInput required formControlName="CaptainRank" />
+            <mat-error *ngIf="piratesDetailForm.get('CaptainRank')?.errors">
+              {{ showErrorMessage("CaptainRank") }}
+            </mat-error>
+          </mat-form-field>
+          <br>
+          <mat-form-field appearance="fill">
+            <mat-label>Ship Name</mat-label>
+            <input matInput required formControlName="ShipName" />
+            <mat-error *ngIf="piratesDetailForm.get('ShipName')?.errors">
+              {{ showErrorMessage("ShipName") }}
+            </mat-error>
+          </mat-form-field>
+          <br>
+          <mat-form-field appearance="fill">
+            <mat-label>Total Members</mat-label>
+            <input matInput required formControlName="TotalMembers" />
+            <mat-error *ngIf="piratesDetailForm.get('ShipName')?.errors">
+              {{ showErrorMessage("ShipName") }}
+            </mat-error>
+          </mat-form-field>
         </form>
       </mat-card-content>
       <mat-card-actions>
         <button mat-flat-button 
           (click)="closeForm()">Cancel</button>
-        <button mat-flat-button 
+        <button style="margin-left: 10px;" 
+          mat-flat-button 
           color="primary" 
           [disabled]="!piratesDetailForm.valid || !piratesDetailForm.dirty"
-          (click)="saveForm()">Save</button> -->
+          (click)="saveForm()">Save</button>
       </mat-card-actions>
     </mat-card>
   </div>
