@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import {HttpClientModule} from '@angular/common/http';
+
 import { PiratesListComponent } from './pirates-list/pirates-list.component';
 import { PiratesDetailComponent } from './pirates-detail/pirates-detail.component';
 
@@ -24,6 +26,7 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     CommonModule,
+    HttpClientModule,
     ReactiveFormsModule,
     MatCardModule,
     MatFormFieldModule,

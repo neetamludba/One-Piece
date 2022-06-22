@@ -5,41 +5,41 @@
         <form class="pirateform" [formGroup]="piratesDetailForm">
           <mat-form-field appearance="fill">
             <mat-label>Pirate Crew Name</mat-label>
-            <input matInput required formControlName="PirateCrewName" />
-            <mat-error *ngIf="piratesDetailForm.get('PirateCrewName')?.errors">
-              {{ showErrorMessage("PirateCrewName") }}
+            <input matInput required formControlName="crewName" />
+            <mat-error *ngIf="piratesDetailForm.get('crewName')?.errors">
+              {{ showErrorMessage("crewName") }}
             </mat-error>
           </mat-form-field>
-          <br>
+          <br><br>
           <mat-form-field appearance="fill">
             <mat-label>Captain Name</mat-label>
-            <input matInput required formControlName="CaptainName" />
-            <mat-error *ngIf="piratesDetailForm.get('CaptainName')?.errors">
-              {{ showErrorMessage("CaptainName") }}
+            <input matInput required formControlName="captainName" />
+            <mat-error *ngIf="piratesDetailForm.get('captainName')?.errors">
+              {{ showErrorMessage("captainName") }}
             </mat-error>
           </mat-form-field>
-          <br>
+          <br><br>
           <mat-form-field appearance="fill">
-            <mat-label>Captain Rank</mat-label>
-            <input matInput required formControlName="CaptainRank" />
-            <mat-error *ngIf="piratesDetailForm.get('CaptainRank')?.errors">
-              {{ showErrorMessage("CaptainRank") }}
+            <mat-label>Captain's Devil Fruit Name</mat-label>
+            <input matInput required formControlName="captainDevilFruitNmae" />
+            <mat-error *ngIf="piratesDetailForm.get('captainDevilFruitNmae')?.errors">
+              {{ showErrorMessage("captainDevilFruitNmae") }}
             </mat-error>
           </mat-form-field>
-          <br>
+          <br><br>
           <mat-form-field appearance="fill">
             <mat-label>Ship Name</mat-label>
-            <input matInput required formControlName="ShipName" />
-            <mat-error *ngIf="piratesDetailForm.get('ShipName')?.errors">
-              {{ showErrorMessage("ShipName") }}
+            <input matInput required formControlName="shipName" />
+            <mat-error *ngIf="piratesDetailForm.get('shipName')?.errors">
+              {{ showErrorMessage("shipName") }}
             </mat-error>
           </mat-form-field>
-          <br>
+          <br><br>
           <mat-form-field appearance="fill">
             <mat-label>Total Members</mat-label>
-            <input matInput required formControlName="TotalMembers" />
-            <mat-error *ngIf="piratesDetailForm.get('ShipName')?.errors">
-              {{ showErrorMessage("ShipName") }}
+            <input type="number" matInput required formControlName="totalMembers" />
+            <mat-error *ngIf="piratesDetailForm.get('totalMembers')?.errors">
+              {{ showErrorMessage("totalMembers") }}
             </mat-error>
           </mat-form-field>
         </form>

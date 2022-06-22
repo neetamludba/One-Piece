@@ -2,11 +2,11 @@ import { Pirate_Crew } from "./Pirate";
 
 export const PIRATES_CREW: Pirate_Crew[] = [
 {
-    crew_id: 1,
-    crew_name: 'Straw Hat Pirates',
-    captain_name:'Monkey D Luffy',
-    captain_rank:'Supernova',
-    ship_name: 'Thousand Sunny',
-    total_members: 9, 
-    created_date: '12/05/2022' }
+    crewId: 0,
+    crewName: 'Straw Hat Pirates',
+    captainName:'Monkey D Luffy',
+    captainDevilFruitNmae:'Gomu Gomu no',
+    shipName: 'Thousand Sunny',
+    totalMembers: 9
+ }
 ];

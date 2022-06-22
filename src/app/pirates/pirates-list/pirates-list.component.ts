@@ -18,7 +18,7 @@ export class PiratesListComponent implements AfterViewInit {
     private router: Router
   ) { }
 
-  displayedColumns: string[] = ['crew_name','captain_name','captain_rank','ship_name','total_members', 'created_date', 'actions'];
+  displayedColumns: string[] = ['crewName','captainName','captainDevilFruitNmae','shipName','totalMembers', 'actions'];
   dataSource = new MatTableDataSource<Pirate_Crew>([]);
 
   
@@ -26,8 +26,8 @@ export class PiratesListComponent implements AfterViewInit {
   sort: MatSort = new MatSort();
 
   ngAfterViewInit(): void {
-    this.piratesService.getAllPirateCrew().then((pirateCrew) => {
-      this.dataSource = new MatTableDataSource<Pirate_Crew>(pirateCrew);
+    this.piratesService.getAllPirateCrew().then((parsedData) => {
+      this.dataSource = new MatTableDataSource<Pirate_Crew>(parsedData);
       this.dataSource.sort = this.sort;
     })
   }
@@ -40,5 +40,10 @@ export class PiratesListComponent implements AfterViewInit {
     this.router.navigateByUrl('pirates/create').catch((error) => {
       console.log(error);
     });
+  }
+
+  deletePirateCrew(PirateCrewId: Number){
+    this.piratesService.deletePirateCrew(PirateCrewId);
+    window.location.reload();    
   }
 }

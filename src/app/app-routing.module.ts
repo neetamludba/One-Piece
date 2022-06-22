@@ -37,6 +37,13 @@ const routes: Routes = [
     component: PiratesDetailComponent,
     pathMatch: 'full',
   },
+
+  {
+    path:'pirates/:id',
+    component: PiratesDetailComponent,
+    pathMatch: 'full',
+  },
+
   { 
     path:'revolutionary-army',
     component: RevolutionaryArmyComponent,
