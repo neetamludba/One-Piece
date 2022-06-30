@@ -1,0 +1,87 @@
+
+<div class="main-content">
+  <div class="mat-elevation-z8">
+    <div class="content"> 
+      <div >
+        <h1>Pirate Crew</h1>
+      </div>
+      <p>
+        A pirate crew operates wholly or partially on the world's seas,
+        especially people conducting robbery by ship. In most, if not all, cases they live with a group 
+        of like-minded criminals, who can do any thins they like or want.
+      </p>
+      <br>
+    <h2>Pirates Crew</h2>
+  </div>
+    <div class="filterBar">
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
+          placeholder="Filter"
+          (keyup)="doFilter($any($event).target.value)"
+        />
+      </mat-form-field>
+      <button mat-mini-fab color="primary" (click)="createPirateCrew()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+    <table class="listtable" mat-table [dataSource]="dataSource" matSort>
+      <ng-container matColumnDef="crewName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Pirate Crew Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.crewName }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="captainName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Captain Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.captainName }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="captainDevilFruitNmae">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Captain's Devil Fruit Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.captainDevilFruitNmae }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="shipName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Ship Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.shipName }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="totalMembers">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Total Members</th>
+        <td mat-cell *matCellDef="let element">{{ element.totalMembers }}</td>
+      </ng-container>
+
+      <!-- <ng-container matColumnDef="createdDate">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Created Date</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.createdDate | date }}
+        </td>
+      </ng-container> -->
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let element">
+          <a
+            class="iconbutton"
+            [routerLink]="['/pirate-crew', element.crewId]"
+            mat-icon-button
+          >
+            <mat-icon color="primary">edit</mat-icon>
+          </a>
+          <button class="iconbutton" mat-icon-button>
+            <mat-icon 
+            color="warn"
+            (click)="deletePirateCrew(element.crewId)">delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+
+
+  </div>
+ 
+</div>

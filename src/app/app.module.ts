@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 
 import { AppComponent } from './app.component';
+import { PirateCrewModule } from './pirate-crew/pirate-crew.module';
 import { PiratesModule } from './pirates/pirates.module';
 import { MarinesComponent } from './marines/marines.component';
 import { RevolutionaryArmyComponent } from './revolutionary-army/revolutionary-army.component';
@@ -28,6 +29,7 @@ import { HomeComponent } from './home/home.component';
   ],
   imports: [
     PiratesModule,
+    PirateCrewModule,
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
