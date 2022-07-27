@@ -18,7 +18,7 @@ export class PirateCrewListComponent implements AfterViewInit {
     private router: Router
   ) { }
 
-  displayedColumns: string[] = ['crewName','captainName','captainDevilFruitNmae','shipName','totalMembers', 'actions'];
+  displayedColumns: string[] = ['crewName','captainName','shipName','totalMembers', 'actions'];
   dataSource = new MatTableDataSource<Pirate_Crew>([]);
 
   

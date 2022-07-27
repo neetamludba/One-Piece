@@ -16,7 +16,7 @@ import { MarinesComponent } from './marines/marines.component';
 import { RevolutionaryArmyComponent } from './revolutionary-army/revolutionary-army.component';
 import { LayoutComponent } from './layout/layout.component';
 import { HomeComponent } from './home/home.component';
-
+import { PiratesMemberModule } from './pirates-member/pirates-member.module'; 
 
 @NgModule({
   declarations: [
@@ -30,6 +30,7 @@ import { HomeComponent } from './home/home.component';
   imports: [
     PiratesModule,
     PirateCrewModule,
+    PiratesMemberModule,
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,

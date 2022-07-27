@@ -16,8 +16,6 @@ export class PirateCrewDetailComponent implements OnInit {
     ) {}
     pirateCrewId =Date.now(); // movement or Date formating
 
-    // captain_rank = ['Pirate King', 'Emperor','Warlord of Sea', 'Supernova'];
-
       pirateCrewDetailForm = new FormGroup({
       crewName: new FormControl(null, [
         Validators.required,
@@ -26,10 +24,6 @@ export class PirateCrewDetailComponent implements OnInit {
       captainName: new FormControl(null, [
         Validators.required,
         Validators.minLength(5),
-      ]),
-      captainDevilFruitNmae: new FormControl(null, [
-        Validators.required,
-        Validators.minLength(4),
       ]),
       shipName: new FormControl(null, [
         Validators.required,
@@ -69,7 +63,6 @@ export class PirateCrewDetailComponent implements OnInit {
       .setValue({
         crewName: pirateCrew.crewName,
         captainName: pirateCrew.captainName,
-        captainDevilFruitNmae: pirateCrew.captainDevilFruitNmae,
         shipName: pirateCrew.shipName,
         totalMembers: pirateCrew.totalMembers,
       });
@@ -83,7 +76,6 @@ export class PirateCrewDetailComponent implements OnInit {
           crewId: this.pirateCrewId,
           crewName: this.pirateCrewDetailForm.get('crewName')?.value,
           captainName: this.pirateCrewDetailForm.get('captainName')?.value,
-          captainDevilFruitNmae: this.pirateCrewDetailForm.get('captainDevilFruitNmae')?.value,
           shipName: this.pirateCrewDetailForm.get('shipName')?.value,
           totalMembers: this.pirateCrewDetailForm.get('totalMembers')?.value,
         })

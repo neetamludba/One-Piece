@@ -4,14 +4,6 @@
             <mat-card-content>
                 <form class="pirateform" [formGroup]="piratesDetailForm">
                     <mat-form-field appearance="fill">
-                        <mat-label>Pirate Name</mat-label>
-                        <input matInput required formControlName="pirateName" />
-                        <mat-error *ngIf="piratesDetailForm.get('pirateName')?.errors">
-                        {{ showErrorMessage("pirateName") }} 
-                        </mat-error>
-                    </mat-form-field>
-                    <br><br>
-                    <mat-form-field appearance="fill">
                         <mat-label>Pirate Crew</mat-label>
                         <mat-select
                           (change)="changePirateCrew($event)"
@@ -27,6 +19,49 @@
                         </mat-select>
                       </mat-form-field>
                 </form>
+                <div class="mat-elevation-z4 question-list-section">
+                  <div class="filterBar">
+                    <mat-form-field>
+                      <input
+                        matInput
+                        type="text"
+                        placeholder="Filter"
+                        (keyup)="doFilter($any($event).target.value)"
+                      />
+                    </mat-form-field>
+                    <button mat-mini-fab color="primary" 
+                    [disabled]="!piratesDetailForm.valid"
+                    (click)="saveForm()">
+                      <mat-icon>add</mat-icon>
+                    </button>
+                  </div>
+                  <table class="listtable" mat-table [dataSource]="dsPirates" matSort>
+                    <ng-container matColumnDef="pirateName">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                        Pirate Member Name
+                      </th>
+                      <td mat-cell *matCellDef="let element">{{ element.pirateName }}</td>
+                    </ng-container>
+        
+                    <ng-container matColumnDef="actions">
+                      <th mat-header-cell *matHeaderCellDef>Actions</th>
+                      <td mat-cell *matCellDef="let element">
+                        <!-- <a class="iconbutton" (click)="getPirate(element.pirateId)" mat-icon-button>
+                          <mat-icon color="primary">edit</mat-icon>
+                        </a> -->
+                        <button class="iconbutton" mat-icon-button>
+                          <mat-icon color="warn" (click)="deletePirate(element.pirateId)">delete</mat-icon>
+                        </button>
+                      </td>
+                    </ng-container>
+        
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr
+                      mat-row
+                      *matRowDef="let row; columns: displayedColumns; let i = index"
+                    ></tr>
+                  </table>
+                </div>
             </mat-card-content>
             <mat-card-actions>
                 <button mat-flat-button 
@@ -35,8 +70,8 @@
                 <button style="margin-left: 10px;" 
                   mat-flat-button 
                   color="primary" 
-                  [disabled]="!piratesDetailForm.valid || !piratesDetailForm.dirty"
-                  (click)="saveForm()">Save
+                  [disabled]="!piratesDetailForm.valid"
+                  (click)="closeForm()">Save
                 </button>
             </mat-card-actions>
         </mat-card>

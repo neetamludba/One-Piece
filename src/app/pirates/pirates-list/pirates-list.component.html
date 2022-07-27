@@ -30,44 +30,42 @@
               <mat-icon>add</mat-icon>
             </button>
         </div>
-        <table class="listtable" mat-table [dataSource]="dataSource" matSort>
-            <ng-container matColumnDef="pirateName">
-              <th mat-header-cell *matHeaderCellDef mat-sort-header>Pirate Name</th>
-              <td mat-cell *matCellDef="let element">{{ element.pirateName }}</td>
-            </ng-container>
+        <table class="listtable" mat-table [dataSource]="dataSourceCrew" matSort>
+            
 
             <ng-container matColumnDef="crewName">
               <th mat-header-cell *matHeaderCellDef mat-sort-header>Crew Name</th>
               <td mat-cell *matCellDef="let element">{{ element.crewName }}</td>
             </ng-container>
-      
+
             <!-- <ng-container matColumnDef="createdDate">
               <th mat-header-cell *matHeaderCellDef mat-sort-header>Created Date</th>
               <td mat-cell *matCellDef="let element">
                 {{ element.createdDate | date }}
               </td>
             </ng-container> -->
-      
+   
             <ng-container matColumnDef="actions">
               <th mat-header-cell *matHeaderCellDef>Actions</th>
               <td mat-cell *matCellDef="let element">
                 <a
                   class="iconbutton"
-                  [routerLink]="['/pirates', element.pirateId]"
+                  [routerLink]="['/pirates', element.crewId]"
                   mat-icon-button
                 >
                   <mat-icon color="primary">edit</mat-icon>
                 </a>
-                <button class="iconbutton" mat-icon-button>
+                <!-- <button class="iconbutton" mat-icon-button>
                   <mat-icon 
                   color="warn"
-                  (click)="deletePirate(element.pirateId)">delete</mat-icon>
-                </button>
+                  (click)="deleteCrew(element.crewId)">delete</mat-icon>
+                </button> -->
               </td>
             </ng-container>
       
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+            <tr mat-header-row *matHeaderRowDef="displayedColumnsCrew"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumnsCrew"></tr>
+            
         </table>
     </div>
 </div>

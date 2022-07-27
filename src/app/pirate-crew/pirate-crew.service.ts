@@ -11,7 +11,7 @@ export class PirateCrewService {
   async getAllPirateCrew() {
     // then return the value / do not call the function . 
    // getAllItems
-    let dataPirate = localStorage.getItem('pirateKey');
+    let dataPirate = localStorage.getItem('crewKey');
     if(dataPirate != null){
       let parsedData = JSON.parse(dataPirate);
       return parsedData;
@@ -21,7 +21,7 @@ export class PirateCrewService {
    }
 
   async getPirateCrew(pirateCrewId: number) {
-    let allData = JSON.parse(localStorage.getItem('pirateKey')!);
+    let allData = JSON.parse(localStorage.getItem('crewKey')!);
     let getIndex = allData.findIndex((object: { crewId: number; }) => {
       return object.crewId === pirateCrewId;
     })
@@ -32,7 +32,7 @@ export class PirateCrewService {
 
   async saveForm(pirateCrewData:any) {
     
-    let parsedData = localStorage.getItem('pirateKey');
+    let parsedData = localStorage.getItem('crewKey');
      // second step parse           // third step push                                       
     this.arrayOfPirateCrew = JSON.parse(parsedData!) || [];                   
     let editflag = 1;
@@ -51,19 +51,19 @@ export class PirateCrewService {
     // fourth step strigyfy
     let stringPirateData = JSON.stringify(this.arrayOfPirateCrew);           
     // then set in local storage
-    localStorage.setItem('pirateKey', stringPirateData);            
+    localStorage.setItem('crewKey', stringPirateData);            
     
    }
 
    async deletePirateCrew(pirateCrewId:Number) { 
     // filter the array just like you did in step three of saveForm    
-    let allData = JSON.parse(localStorage.getItem('pirateKey')!);
+    let allData = JSON.parse(localStorage.getItem('crewKey')!);
     let getIndex = allData.findIndex((object: { crewId: number; }) => {
       return object.crewId === pirateCrewId;
     })
     allData.splice(getIndex,1);
       // edit and then save again 
     let stringPirateData = JSON.stringify(allData);       
-    localStorage.setItem('pirateKey', stringPirateData);
+    localStorage.setItem('crewKey', stringPirateData);
   }
 }

@@ -1,0 +1,22 @@
+<h2 mat-dialog-title> Crew Member Details </h2>
+<mat-dialog-content [formGroup]="memberDetailsForm">
+    <mat-form-field appearance="fill">
+        <mat-label>Pirate Member Name</mat-label>
+        <input matInput required formControlName="pirateName" />
+        <mat-error *ngIf="memberDetailsForm.get('pirateName')?.errors">
+        {{ showErrorMessage("pirateName") }} 
+        </mat-error>
+    </mat-form-field>
+    <br><br>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-flat-button mat-dialog-close>Cancel</button>
+    <button
+      mat-flat-button
+      color="primary"
+      (click)="saveMember()"
+      [disabled]="!memberDetailsForm.valid || !memberDetailsForm.dirty"
+    >
+      Save
+    </button>
+  </mat-dialog-actions>

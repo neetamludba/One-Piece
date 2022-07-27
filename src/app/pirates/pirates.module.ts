@@ -16,7 +16,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { RouterModule } from '@angular/router';
 import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
-
+import { MatDialogModule } from '@angular/material/dialog';
 @NgModule({
   declarations: [
     PiratesListComponent,
@@ -36,7 +36,8 @@ import { MatSelectModule } from '@angular/material/select';
     MatCheckboxModule,
     RouterModule,
     MatOptionModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDialogModule
   ]
 })
 export class PiratesModule { }

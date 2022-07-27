@@ -1,6 +1,6 @@
 export interface Pirates{
     crewId: number;
     pirateId: number;
-    pirateName: string;
+    pirateName: string,
     crewName: string;
 }

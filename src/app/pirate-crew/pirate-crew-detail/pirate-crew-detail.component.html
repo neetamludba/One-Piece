@@ -20,14 +20,6 @@
           </mat-form-field>
           <br><br>
           <mat-form-field appearance="fill">
-            <mat-label>Captain's Devil Fruit Name</mat-label>
-            <input matInput required formControlName="captainDevilFruitNmae" />
-            <mat-error *ngIf="pirateCrewDetailForm.get('captainDevilFruitNmae')?.errors">
-              {{ showErrorMessage("captainDevilFruitNmae") }}
-            </mat-error>
-          </mat-form-field>
-          <br><br>
-          <mat-form-field appearance="fill">
             <mat-label>Ship Name</mat-label>
             <input matInput required formControlName="shipName" />
             <mat-error *ngIf="pirateCrewDetailForm.get('shipName')?.errors">
