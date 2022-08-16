@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
-import { Router,ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Pirate_Crew } from 'src/app/pirate-crew';
 import { PirateCrewService } from 'src/app/pirate-crew/pirate-crew.service';
 import { PiratesService } from '../pirates.service';
@@ -9,7 +9,6 @@ import { Pirates } from 'src/app/pirates';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSort } from '@angular/material/sort';
 import { MemberDetailComponent } from 'src/app/pirates-member/member-detail/member-detail.component';
-
 @Component({
   selector: 'app-pirates-detail',
   templateUrl: './pirates-detail.component.html',
@@ -23,10 +22,9 @@ export class PiratesDetailComponent implements OnInit {
     private pirateCrewService: PirateCrewService,
     private piratesService: PiratesService,
     private dialog: MatDialog,
-  ) 
-  { }
+  ) { }
 
-  crewId = 0;
+  crewId = Date.now();
   pirateCrews: Pirate_Crew[] = [];
 
   dsPirates = new MatTableDataSource<Pirates>([]);
@@ -38,11 +36,30 @@ export class PiratesDetailComponent implements OnInit {
   ];
 
   piratesDetailForm = new FormGroup({
-     crewId: new FormControl(null,[
+    crewId: new FormControl(null, [
       Validators.required,
-     ]),
+    ]),
   });
 
+  pirateCrewDetailForm = new FormGroup({
+    crewName: new FormControl(null, [
+      Validators.required,
+      Validators.minLength(5),
+    ]),
+    captainName: new FormControl(null, [
+      Validators.required,
+      Validators.minLength(5),
+    ]),
+    shipName: new FormControl(null, [
+      Validators.required,
+      Validators.minLength(5),
+    ]),
+    totalMembers: new FormControl(null, [
+      Validators.required
+    ])
+
+  });
+  
   @ViewChild(MatSort)
   sort: MatSort = new MatSort();
 
@@ -51,13 +68,14 @@ export class PiratesDetailComponent implements OnInit {
 
     let id = Number(this.route.snapshot.paramMap.get('id'));
     if (!isNaN(id) && id > 0) {
-       this.crewId = id;
-       this.getPirateCrew(this.crewId);
-     }
+      this.crewId = id;
+      this.getPirates(this.crewId);
+      this.getPirateCrew(this.crewId);
+    }
   }
-  
 
-  showErrorMessage(fieldName: string){
+
+  showErrorMessage(fieldName: string) {
     let errors = this.piratesDetailForm.get(fieldName)?.errors;
 
     if (errors) {
@@ -70,20 +88,29 @@ export class PiratesDetailComponent implements OnInit {
   doFilter(value: string) {
     this.dsPirates.filter = value.trim().toLocaleLowerCase();
   }
-  getAllPirateCrew(){
-    this.pirateCrewService.getAllPirateCrew().then((pirateCrews)=>{
+  getAllPirateCrew() {
+    this.pirateCrewService.getAllPirateCrew().then((pirateCrews) => {
       this.pirateCrews = pirateCrews;
     })
-    .catch((err)=> console.log(err));
+      .catch((err) => console.log(err));
   }
 
-  changePirateCrew(element:any){
-    this.piratesDetailForm.setValue({crewId: element.target.value});
+
+  getPirateCrew(crewId: number) {
+    this.pirateCrewService.getPirateCrew(crewId).then((pirateCrew) => {
+      console.log('pirate filtered crew data   ' + pirateCrew);
+      this.pirateCrewDetailForm.setValue({
+        crewName: pirateCrew.crewName,
+        captainName: pirateCrew.captainName,
+        shipName: pirateCrew.shipName,
+        totalMembers: pirateCrew.totalMembers,
+      });
+    });
   }
 
-  getPirateCrew(crewId:number){
-    this.piratesService.getPirateCrew(crewId).then((pirates)=>{
-      console.log('pirate filtered crew data   ' + pirates);
+  getPirates(crewId: number) {
+    this.piratesService.getPirateCrew(crewId).then((pirates) => {
+      console.log('pirate filtered data   ' + pirates);
       this.piratesDetailForm.setValue({
         crewId: this.crewId,
       });
@@ -93,41 +120,52 @@ export class PiratesDetailComponent implements OnInit {
   }
 
 
-  deletePirate(pirateId:number){
-      this.piratesService.deletePirate(pirateId);
-      window.location.reload();
-    
+  deletePirate(pirateId: number) {
+    this.piratesService.deletePirate(pirateId);
+    window.location.reload();
+
   }
-  saveForm(){
-      let crewName:string;
-      const dialogRef = this.dialog.open(MemberDetailComponent, {
-        width: '700px',
-      });
+  saveFormCrew(){
+    this.pirateCrewService.saveForm(
+      {
+        crewId: this.crewId,
+        crewName: this.pirateCrewDetailForm.get('crewName')?.value,
+        captainName: this.pirateCrewDetailForm.get('captainName')?.value,
+        shipName: this.pirateCrewDetailForm.get('shipName')?.value,
+        totalMembers: this.pirateCrewDetailForm.get('totalMembers')?.value,
+      })
+      
+  }
+  saveFormPirate() {
+    let crewName: string;
+    const dialogRef = this.dialog.open(MemberDetailComponent, {
+      width: '700px',
+    });
 
-      dialogRef.afterClosed().subscribe((result: any) => {
-        if (result){
-          let getCrewIndex = this.pirateCrews.findIndex((object: { crewId: number; }) => {
-          console.log(object.crewId + "   "+ this.piratesDetailForm.get('crewId')?.value);
+    dialogRef.afterClosed().subscribe((result: any) => {
+      if (result) {
+        let getCrewIndex = this.pirateCrews.findIndex((object: { crewId: number; }) => {
+          console.log(object.crewId + "   " + this.piratesDetailForm.get('crewId')?.value);
           return object.crewId === this.piratesDetailForm.get('crewId')?.value;
-          })
-      
-          if(getCrewIndex >= 0)
-            crewName = this.pirateCrews[getCrewIndex].crewName;
-        
-          this.piratesService.saveForm({
-            pirateId: result.pirateId,
-            crewId: this.piratesDetailForm.get('crewId')?.value,
-            pirateName: result.pirateName,
-            crewName: crewName,
-          })
-          .catch((ex)=>console.log(ex))
-        }
-      
-        window.location.reload();
-        });
-    }
+        })
 
-  closeForm(){
+        if (getCrewIndex >= 0)
+          crewName = this.pirateCrews[getCrewIndex].crewName;
+
+        this.piratesService.saveForm({
+          pirateId: result.pirateId,
+          crewId: this.piratesDetailForm.get('crewId')?.value,
+          pirateName: result.pirateName,
+          crewName: crewName,
+        })
+          .catch((ex) => console.log(ex))
+      }
+
+      window.location.reload();
+    });
+  }
+
+  closeForm() {
     this.router.navigateByUrl('pirates').catch((error) => {
       console.log(error);
     });

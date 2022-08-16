@@ -6,11 +6,11 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./marines.component.css']
 })
 export class MarinesComponent implements OnInit {
-  
-  constructor(){ }
+
+  constructor() { }
 
   ngOnInit(): void {
   }
   @Input() displayMarines: Boolean = false;
-  
+
 }

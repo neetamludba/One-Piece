@@ -17,6 +17,8 @@ import { RouterModule } from '@angular/router';
 import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatListModule } from '@angular/material/list';
+
 @NgModule({
   declarations: [
     PiratesListComponent,
@@ -32,12 +34,13 @@ import { MatDialogModule } from '@angular/material/dialog';
     HttpClientModule,
     MatTableModule,
     MatCardModule,
-    MatSortModule,   
+    MatSortModule,
     MatCheckboxModule,
     RouterModule,
     MatOptionModule,
     MatSelectModule,
-    MatDialogModule
+    MatDialogModule,
+    MatListModule,
   ]
 })
 export class PiratesModule { }

@@ -1,4 +1,4 @@
-export interface Pirates{
+export interface Pirates {
     crewId: number;
     pirateId: number;
     pirateName: string,

@@ -34,9 +34,9 @@ export class HomeComponent implements OnInit {
   //     this.displayVarRArmy = false;
   //   }
   // }
-  
+
   // displayVarRArmy: boolean = false;  
-  
+
   // rArmyDisplay(){
   //   if(this.displayVarRArmy){
   //     this.displayVarRArmy = false;

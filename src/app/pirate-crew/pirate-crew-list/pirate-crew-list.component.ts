@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { PirateCrewService } from '../pirate-crew.service';
 import { Pirate_Crew } from 'src/app/pirate-crew';
 
- 
+
 @Component({
   selector: 'pirate-crew-list',
   templateUrl: './pirate-crew-list.component.html',
@@ -18,10 +18,10 @@ export class PirateCrewListComponent implements AfterViewInit {
     private router: Router
   ) { }
 
-  displayedColumns: string[] = ['crewName','captainName','shipName','totalMembers', 'actions'];
+  displayedColumns: string[] = ['crewName', 'captainName', 'shipName', 'totalMembers', 'actions'];
   dataSource = new MatTableDataSource<Pirate_Crew>([]);
 
-  
+
   @ViewChild(MatSort)
   sort: MatSort = new MatSort();
 
@@ -31,19 +31,19 @@ export class PirateCrewListComponent implements AfterViewInit {
       this.dataSource.sort = this.sort;
     })
   }
-  
+
   public doFilter(value: string) {
     this.dataSource.filter = value.trim().toLocaleLowerCase();
   }
-  
+
   createPirateCrew() {
     this.router.navigateByUrl('pirate-crew/create').catch((error) => {
       console.log(error);
     });
   }
 
-  deletePirateCrew(PirateCrewId: Number){
+  deletePirateCrew(PirateCrewId: Number) {
     this.piratesCrewService.deletePirateCrew(PirateCrewId);
-    window.location.reload();    
+    window.location.reload();
   }
 }

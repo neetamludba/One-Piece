@@ -88,4 +88,18 @@
     background-color: #525252;
     color: white;
   }
-  
+  .mat-list-base {
+    padding: 0px;
+    /* font-size: 12px; */
+  }
+  .mat-list-item{
+  font-size: 12px;
+}
+.mat-list-base .mat-list-item{
+  font-size: 12px;
+  height: 15px;
+}
+.mat-list-option  .mat-list-base{
+  font-size: 12px;
+  height: 15px;
+}

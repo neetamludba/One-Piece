@@ -46,7 +46,7 @@ export class MemberDetailComponent implements OnInit {
   }
 
 
-  saveMember(){
+  saveMember() {
     this.dialogRef.close({
       pirateId: this.pirateId,
       pirateName: this.memberDetailsForm.get('pirateName')?.value,

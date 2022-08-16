@@ -1,4 +1,4 @@
-export interface Pirate_Crew{
+export interface Pirate_Crew {
      crewId: number;
      crewName: string;
      captainName: string;

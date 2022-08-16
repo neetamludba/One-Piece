@@ -22,3 +22,7 @@ label {
     color: #ccc;
     cursor: auto;
   }
+  .width_50 {
+    box-sizing: border-box;
+    width: 50%;
+  }

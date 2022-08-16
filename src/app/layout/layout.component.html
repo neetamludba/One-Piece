@@ -1,15 +1,11 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav class="sidenav" mode="side" opened>
     <div class="sidenav-image">
-      <a class="navbar-brand" routerLink="/" >
-        <img
-          width="100"
-          alt="One Piece Logo"
-          src="assets\one_piece_nav_pic.png"
-        />
+      <a class="navbar-brand" routerLink="/">
+        <img width="100" alt="One Piece Logo" src="assets\one_piece_nav_pic.png" />
       </a>
     </div>
-   
+
     <div class="nav-item" routerLink="/" routerLinkActive="active">
       Home
     </div>
@@ -24,8 +20,8 @@
     </div>
     <div class="nav-item" routerLink="/revolutionary-army" routerLinkActive="active">
       Revolutionary Army
-    </div>   
-    
+    </div>
+
   </mat-sidenav>
   <mat-sidenav-content>
     <router-outlet></router-outlet>
@@ -40,4 +36,3 @@
     <span class="text-muted">&copy; 2022</span>
   </div>
 </footer>
-

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { PirateCrewListComponent } from './pirate-crew-list/pirate-crew-list.component';
 import { PirateCrewDetailComponent } from './pirate-crew-detail/pirate-crew-detail.component';
@@ -11,7 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSortModule } from '@angular/material/sort';
-import { MatTableModule }  from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -23,7 +23,7 @@ import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     PirateCrewListComponent,
-    PirateCrewDetailComponent  
+    PirateCrewDetailComponent
   ],
   imports: [
     CommonModule,
@@ -35,7 +35,7 @@ import { RouterModule } from '@angular/router';
     MatTableModule,
     MatCardModule,
     MatFormFieldModule,
-    MatSortModule,   
+    MatSortModule,
     MatCheckboxModule,
     RouterModule
   ]

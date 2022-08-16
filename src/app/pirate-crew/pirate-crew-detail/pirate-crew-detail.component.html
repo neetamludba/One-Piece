@@ -3,31 +3,31 @@
     <mat-card>
       <mat-card-content>
         <form class="pirateform" [formGroup]="pirateCrewDetailForm">
-          <mat-form-field appearance="fill">
+          <mat-form-field class="width_50" appearance="fill">
             <mat-label>Pirate Crew Name</mat-label>
             <input matInput required formControlName="crewName" />
             <mat-error *ngIf="pirateCrewDetailForm.get('crewName')?.errors">
-              {{ showErrorMessage("crewName") }} 
+              {{ showErrorMessage("crewName") }}
             </mat-error>
           </mat-form-field>
-          <br><br>
-          <mat-form-field appearance="fill">
+          <!-- <br><br> -->
+          <mat-form-field class="width_50" appearance="fill">
             <mat-label>Captain Name</mat-label>
             <input matInput required formControlName="captainName" />
             <mat-error *ngIf="pirateCrewDetailForm.get('captainName')?.errors">
               {{ showErrorMessage("captainName") }}
             </mat-error>
           </mat-form-field>
-          <br><br>
-          <mat-form-field appearance="fill">
+          <!-- <br><br> -->
+          <mat-form-field class="width_50" appearance="fill">
             <mat-label>Ship Name</mat-label>
             <input matInput required formControlName="shipName" />
             <mat-error *ngIf="pirateCrewDetailForm.get('shipName')?.errors">
               {{ showErrorMessage("shipName") }}
             </mat-error>
           </mat-form-field>
-          <br><br>
-          <mat-form-field appearance="fill">
+          <!-- <br><br> -->
+          <mat-form-field class="width_50" appearance="fill">
             <mat-label>Total Members</mat-label>
             <input type="number" matInput required formControlName="totalMembers" />
             <mat-error *ngIf="pirateCrewDetailForm.get('totalMembers')?.errors">
@@ -37,13 +37,9 @@
         </form>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-flat-button 
-          (click)="closeForm()">Cancel</button>
-        <button style="margin-left: 10px;" 
-          mat-flat-button 
-          color="primary" 
-          [disabled]="!pirateCrewDetailForm.valid || !pirateCrewDetailForm.dirty"
-          (click)="saveForm()">Save</button>
+        <button mat-flat-button (click)="closeForm()">Cancel</button>
+        <button style="margin-left: 10px;" mat-flat-button color="primary"
+          [disabled]="!pirateCrewDetailForm.valid || !pirateCrewDetailForm.dirty" (click)="saveForm()">Save</button>
       </mat-card-actions>
     </mat-card>
   </div>
