@@ -72,6 +72,7 @@ export class PiratesService {
     allData = allData.filter((object: { crewId: number;}) => { return object.crewId !== crewId})
     // edit and then save again 
     let stringPirateData = JSON.stringify(allData);
+    console.log("delete crew and Data pirates:  " + stringPirateData);
     localStorage.setItem('piratesKey', stringPirateData);
   }
 }

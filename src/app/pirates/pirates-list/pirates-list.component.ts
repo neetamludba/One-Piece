@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
-import { Pirates } from 'src/app/pirates';
 import { Pirate_Crew } from 'src/app/pirate-crew';
 import { PiratesService } from '../pirates.service';
 import { PirateCrewService } from 'src/app/pirate-crew/pirate-crew.service';
@@ -12,7 +11,7 @@ import { MatSort } from '@angular/material/sort';
   selector: 'pirates-list',
   templateUrl: './pirates-list.component.html',
   styleUrls: ['./pirates-list.component.css'],
- 
+
 })
 export class PiratesListComponent implements OnInit {
 
@@ -26,7 +25,7 @@ export class PiratesListComponent implements OnInit {
     'crewName',
     'actions',
   ];
-  
+
   dataSourceCrew = new MatTableDataSource<Pirate_Crew>([]);
   dataSourcePirates: any;
 
@@ -35,10 +34,17 @@ export class PiratesListComponent implements OnInit {
   sort: MatSort = new MatSort();
 
   ngOnInit(): void {
+    this.getAllPirates();
+    this.getAllPirateCrew();
+  }
+
+  getAllPirates() {
     this.piratesService.getAllPirate().then((pirateData) => {
       this.dataSourcePirates = pirateData;
-      console.log("Pirate Data :  "+this.dataSourcePirates);
     })
+  }
+
+  getAllPirateCrew() {
     this.crewService.getAllPirateCrew().then((crewData) => {
       this.dataSourceCrew = new MatTableDataSource<Pirate_Crew>(crewData);
       this.dataSourceCrew.sort = this.sort;
@@ -49,7 +55,7 @@ export class PiratesListComponent implements OnInit {
     this.dataSourceCrew.filter = value.trim().toLocaleLowerCase();
   }
 
-  createPirateCrew(){
+  createPirateCrew() {
     this.router.navigateByUrl('pirates/create').catch((error) => {
       console.log(error);
     });
@@ -58,6 +64,7 @@ export class PiratesListComponent implements OnInit {
   deleteCrew_Pirates(crewId: number) {
     this.piratesService.deleteCrew(crewId);
     this.crewService.deletePirateCrew(crewId);
-    window.location.reload();
+    this.getAllPirates();
+    this.getAllPirateCrew();
   }
 }

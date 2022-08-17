@@ -35,7 +35,7 @@
             </mat-error>
           </mat-form-field>
         </form>
-        <button style="margin-left: 10px;" mat-flat-button color="primary" 
+        <button style="margin-left: 10px;" mat-flat-button color="primary"
           [disabled]="!pirateCrewDetailForm.valid || !pirateCrewDetailForm.dirty" (click)="saveFormCrew()">Save
         </button>
         <!-- <form class="pirateform" [formGroup]="piratesDetailForm">
@@ -54,7 +54,8 @@
             <mat-form-field>
               <input matInput type="text" placeholder="Filter" (keyup)="doFilter($any($event).target.value)" />
             </mat-form-field>
-            <button mat-mini-fab color="primary" [disabled]="!pirateCrewDetailForm.valid" (click)="saveFormPirate()">
+            <button mat-mini-fab color="primary" [disabled]="!pirateCrewDetailForm.valid || !addPirate"
+              (click)="saveFormPirate()">
               <mat-icon>add</mat-icon>
             </button>
           </div>

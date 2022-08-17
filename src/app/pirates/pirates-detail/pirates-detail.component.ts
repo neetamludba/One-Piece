@@ -29,6 +29,7 @@ export class PiratesDetailComponent implements OnInit {
 
   dsPirates = new MatTableDataSource<Pirates>([]);
 
+  addPirate = false;
 
   displayedColumns: string[] = [
     'pirateName',
@@ -59,15 +60,14 @@ export class PiratesDetailComponent implements OnInit {
     ])
 
   });
-  
+
   @ViewChild(MatSort)
   sort: MatSort = new MatSort();
 
   ngOnInit(): void {
-    this.getAllPirateCrew();
-
     let id = Number(this.route.snapshot.paramMap.get('id'));
     if (!isNaN(id) && id > 0) {
+      this.addPirate = true;
       this.crewId = id;
       this.getPirates(this.crewId);
       this.getPirateCrew(this.crewId);
@@ -88,17 +88,9 @@ export class PiratesDetailComponent implements OnInit {
   doFilter(value: string) {
     this.dsPirates.filter = value.trim().toLocaleLowerCase();
   }
-  getAllPirateCrew() {
-    this.pirateCrewService.getAllPirateCrew().then((pirateCrews) => {
-      this.pirateCrews = pirateCrews;
-    })
-      .catch((err) => console.log(err));
-  }
-
 
   getPirateCrew(crewId: number) {
     this.pirateCrewService.getPirateCrew(crewId).then((pirateCrew) => {
-      console.log('pirate filtered crew data   ' + pirateCrew);
       this.pirateCrewDetailForm.setValue({
         crewName: pirateCrew.crewName,
         captainName: pirateCrew.captainName,
@@ -110,7 +102,6 @@ export class PiratesDetailComponent implements OnInit {
 
   getPirates(crewId: number) {
     this.piratesService.getPirateCrew(crewId).then((pirates) => {
-      console.log('pirate filtered data   ' + pirates);
       this.piratesDetailForm.setValue({
         crewId: this.crewId,
       });
@@ -122,10 +113,10 @@ export class PiratesDetailComponent implements OnInit {
 
   deletePirate(pirateId: number) {
     this.piratesService.deletePirate(pirateId);
-    window.location.reload();
-
+    this.getPirates(this.crewId);
   }
-  saveFormCrew(){
+
+  saveFormCrew() {
     this.pirateCrewService.saveForm(
       {
         crewId: this.crewId,
@@ -134,34 +125,27 @@ export class PiratesDetailComponent implements OnInit {
         shipName: this.pirateCrewDetailForm.get('shipName')?.value,
         totalMembers: this.pirateCrewDetailForm.get('totalMembers')?.value,
       })
-      
+
+    this.addPirate = true;
+
   }
+
   saveFormPirate() {
-    let crewName: string;
     const dialogRef = this.dialog.open(MemberDetailComponent, {
       width: '700px',
     });
 
     dialogRef.afterClosed().subscribe((result: any) => {
       if (result) {
-        let getCrewIndex = this.pirateCrews.findIndex((object: { crewId: number; }) => {
-          console.log(object.crewId + "   " + this.piratesDetailForm.get('crewId')?.value);
-          return object.crewId === this.piratesDetailForm.get('crewId')?.value;
-        })
-
-        if (getCrewIndex >= 0)
-          crewName = this.pirateCrews[getCrewIndex].crewName;
-
         this.piratesService.saveForm({
           pirateId: result.pirateId,
-          crewId: this.piratesDetailForm.get('crewId')?.value,
+          crewId: this.crewId,
           pirateName: result.pirateName,
-          crewName: crewName,
+          crewName: this.pirateCrewDetailForm.get('crewName')?.value,
         })
           .catch((ex) => console.log(ex))
       }
-
-      window.location.reload();
+      this.getPirates(this.crewId);
     });
   }
 
