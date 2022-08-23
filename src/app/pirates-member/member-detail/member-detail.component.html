@@ -7,7 +7,48 @@
       {{ showErrorMessage("pirateName") }}
     </mat-error>
   </mat-form-field>
-  <br><br>
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>Occupation</mat-label>
+    <input matInput required formControlName="pirateOccupation" />
+    <mat-error *ngIf="memberDetailsForm.get('pirateOccupation')?.errors">
+      {{ showErrorMessage("pirateOccupation") }}
+    </mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>Status (Dead or Alive)</mat-label>
+    <input matInput required formControlName="pirateStatus" />
+    <mat-error *ngIf="memberDetailsForm.get('pirateStatus')?.errors">
+      {{ showErrorMessage("pirateStatus") }}
+    </mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>Bounty (Berries)</mat-label>
+    <input matInput required formControlName="pirateBounty" />
+    <mat-error *ngIf="memberDetailsForm.get('pirateBounty')?.errors">
+      {{ showErrorMessage("pirateBounty") }}
+    </mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>Devil Fruit Name</mat-label>
+    <input matInput required formControlName="pirateDevilFruit" />
+    <mat-error *ngIf="memberDetailsForm.get('pirateDevilFruit')?.errors">
+      {{ showErrorMessage("pirateDevilFruit") }}
+    </mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>Haki/Special Power</mat-label>
+    <input matInput required formControlName="piratePowers" />
+    <mat-error *ngIf="memberDetailsForm.get('piratePowers')?.errors">
+      {{ showErrorMessage("piratePowers") }}
+    </mat-error>
+  </mat-form-field>
+  <br>
+  
 </mat-dialog-content>
 <mat-dialog-actions>
   <button mat-flat-button mat-dialog-close>Cancel</button>

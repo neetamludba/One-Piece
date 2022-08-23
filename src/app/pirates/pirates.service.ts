@@ -53,6 +53,17 @@ export class PiratesService {
     localStorage.setItem('piratesKey', stringPirateData);
 
   }
+  async getPirate(pirateId: number) {
+    // filter the array just like you did in step three of saveForm    
+    let allData = JSON.parse(localStorage.getItem('piratesKey')!);
+    let getIndex = allData.findIndex((object: { pirateId: number; }) => {
+      return object.pirateId === pirateId;
+    })
+    console.log(allData[getIndex]);
+    return allData[getIndex];
+
+  }
+
 
   async deletePirate(pirateId: number) {
     // filter the array just like you did in step three of saveForm    
@@ -69,7 +80,7 @@ export class PiratesService {
   async deleteCrew(crewId: number) {
     // filter the array just like you did in step three of saveForm    
     let allData = JSON.parse(localStorage.getItem('piratesKey')!);
-    allData = allData.filter((object: { crewId: number;}) => { return object.crewId !== crewId})
+    allData = allData.filter((object: { crewId: number; }) => { return object.crewId !== crewId })
     // edit and then save again 
     let stringPirateData = JSON.stringify(allData);
     console.log("delete crew and Data pirates:  " + stringPirateData);

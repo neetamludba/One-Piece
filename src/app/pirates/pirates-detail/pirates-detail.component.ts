@@ -33,6 +33,11 @@ export class PiratesDetailComponent implements OnInit {
 
   displayedColumns: string[] = [
     'pirateName',
+    'pirateOccupation',
+    'pirateStatus',
+    'pirateBounty',
+    'pirateDevilFruit',
+    'piratePowers',
     'actions',
   ];
 
@@ -110,6 +115,32 @@ export class PiratesDetailComponent implements OnInit {
     });
   }
 
+  editPirate(pirateId: number) {
+    console.log(pirateId);
+    const dialogRef = this.dialog.open(MemberDetailComponent, {
+      data: pirateId,
+      width: '700px',
+    });
+
+    dialogRef.afterClosed().subscribe((result: any) => {
+      if (result) {
+        this.piratesService.saveForm({
+          crewId: this.crewId,
+          pirateId: result.pirateId,
+          pirateName: result.pirateName,
+          pirateOccupation: result.pirateOccupation,
+          pirateStatus: result.pirateStatus,
+          pirateBounty: result.pirateBounty,
+          pirateDevilFruit: result.pirateDevilFruit,
+          piratePowers: result.piratePowers,
+          crewName: this.pirateCrewDetailForm.get('crewName')?.value,
+
+        })
+          .catch((ex) => console.log(ex))
+      }
+      this.getPirates(this.crewId);
+    });
+  }
 
   deletePirate(pirateId: number) {
     this.piratesService.deletePirate(pirateId);
@@ -138,10 +169,16 @@ export class PiratesDetailComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result: any) => {
       if (result) {
         this.piratesService.saveForm({
-          pirateId: result.pirateId,
           crewId: this.crewId,
+          pirateId: result.pirateId,
           pirateName: result.pirateName,
+          pirateOccupation: result.pirateOccupation,
+          pirateStatus: result.pirateStatus,
+          pirateBounty: result.pirateBounty,
+          pirateDevilFruit: result.pirateDevilFruit,
+          piratePowers: result.piratePowers,
           crewName: this.pirateCrewDetailForm.get('crewName')?.value,
+
         })
           .catch((ex) => console.log(ex))
       }
