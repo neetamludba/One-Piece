@@ -17,7 +17,6 @@ import { RevolutionaryArmyComponent } from './revolutionary-army/revolutionary-a
 import { LayoutComponent } from './layout/layout.component';
 import { HomeComponent } from './home/home.component';
 import { PiratesMemberModule } from './pirates-member/pirates-member.module';
-import { QuillModule } from 'ngx-quill';
 
 @NgModule({
   declarations: [
@@ -39,8 +38,7 @@ import { QuillModule } from 'ngx-quill';
     MatSidenavModule,
     CommonModule,
     HttpClientModule,
-    MatButtonModule,
-    QuillModule
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

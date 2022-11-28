@@ -1,8 +1,0 @@
-{
-  "projects": {
-    "default": "one-piece-webapp",
-    "one": "one-piece-webapp"
-  },
-  "targets": {},
-  "etags": {}
-}

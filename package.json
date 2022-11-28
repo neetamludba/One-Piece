@@ -21,7 +21,6 @@
     "@angular/platform-browser-dynamic": "~14.2.12",
     "@angular/router": "~14.2.12",
     "angular-in-memory-web-api": "^0.13.0",
-    "ngx-quill": "^20.0.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
