@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { PirateCrewService } from '../pirate-crew.service';
 
@@ -16,20 +16,20 @@ export class PirateCrewDetailComponent implements OnInit {
   ) { }
   pirateCrewId = Date.now(); // movement or Date formating
 
-  pirateCrewDetailForm = new UntypedFormGroup({
-    crewName: new UntypedFormControl(null, [
+  pirateCrewDetailForm = new FormGroup({
+    crewName: new FormControl(null, [
       Validators.required,
       Validators.minLength(5),
     ]),
-    captainName: new UntypedFormControl(null, [
+    captainName: new FormControl(null, [
       Validators.required,
       Validators.minLength(5),
     ]),
-    shipName: new UntypedFormControl(null, [
+    shipName: new FormControl(null, [
       Validators.required,
       Validators.minLength(5),
     ]),
-    totalMembers: new UntypedFormControl(null, [
+    totalMembers: new FormControl(null, [
       Validators.required
     ])
 
