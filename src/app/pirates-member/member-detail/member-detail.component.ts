@@ -1,11 +1,10 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import {
-  UntypedFormBuilder,
-  UntypedFormControl,
+  FormBuilder,
+  FormControl,
   Validators,
 } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Pirates } from 'src/app/pirates';
 import { PiratesService } from 'src/app/pirates/pirates.service';
 
 @Component({
@@ -17,33 +16,33 @@ export class MemberDetailComponent implements OnInit {
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: number,
-    private formBuilder: UntypedFormBuilder,
+    private formBuilder: FormBuilder,
     private dialogRef: MatDialogRef<MemberDetailComponent>,
     private piratesService: PiratesService,
   ) { }
 
   pirateId = Date.now();
   memberDetailsForm = this.formBuilder.group({
-    pirateName: new UntypedFormControl(null, [
+    pirateName: new FormControl(null, [
       Validators.required,
       Validators.minLength(4),
     ]),
-    pirateOccupation: new UntypedFormControl(null, [
+    pirateOccupation: new FormControl(null, [
       Validators.required,
       Validators.minLength(4),
     ]),
-    pirateStatus: new UntypedFormControl(null, [
+    pirateStatus: new FormControl(null, [
       Validators.required,
       Validators.minLength(4),
     ]),
-    pirateBounty: new UntypedFormControl(null, [
+    pirateBounty: new FormControl(null, [
       Validators.required,
     ]),
-    pirateDevilFruit: new UntypedFormControl(null, [
+    pirateDevilFruit: new FormControl(null, [
       Validators.required,
       Validators.minLength(4),
     ]),
-    piratePowers: new UntypedFormControl(null, [
+    piratePowers: new FormControl(null, [
       Validators.required,
       Validators.minLength(4),
     ]),

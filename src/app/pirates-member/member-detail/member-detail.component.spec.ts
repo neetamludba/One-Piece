@@ -1,4 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { MemberDetailComponent } from './member-detail.component';
 
@@ -8,9 +11,21 @@ describe('MemberDetailsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MemberDetailComponent ]
+      imports: [
+        RouterTestingModule,
+        FormsModule,
+        ReactiveFormsModule
+      ],
+      declarations: [MemberDetailComponent],
+      providers: [{
+        provide: MatDialogRef,
+        useValue: {}
+      }, {
+        provide: MAT_DIALOG_DATA,
+        useValue: {}
+      }]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
