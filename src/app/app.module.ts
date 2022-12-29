@@ -13,7 +13,7 @@ import { AppComponent } from './app.component';
 import { PirateCrewModule } from './pirate-crew/pirate-crew.module';
 import { PiratesModule } from './pirates/pirates.module';
 import { MarinesComponent } from './marines/marines.component';
-import { RevolutionaryArmyComponent } from './revolutionary-army/revolutionary-army.component';
+import { RevolutionaryArmyModule } from './revolutionary-army/revolutionary-army.module';
 import { LayoutComponent } from './layout/layout.component';
 import { HomeComponent } from './home/home.component';
 import { PiratesMemberModule } from './pirates-member/pirates-member.module';
@@ -24,7 +24,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
   declarations: [
     AppComponent,
     MarinesComponent,
-    RevolutionaryArmyComponent,
     LayoutComponent,
     HomeComponent,
 
@@ -33,6 +32,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     PiratesModule,
     PirateCrewModule,
     PiratesMemberModule,
+    RevolutionaryArmyModule,
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,

@@ -1,0 +1,8 @@
+.revolutionaryArmy{
+    margin: 20px !important;
+
+}
+
+.main-content{
+    min-height: calc(32vh - 123px) !important;
+}

@@ -1,0 +1,29 @@
+<div class="main-content">
+    <div class="mat-elevation-z8">
+        <div class="content">
+            <h2>Revolutionary Army Form</h2>
+        </div>
+        <mat-card>
+            <mat-card-content>
+                <form class="main-content" [formGroup]="revolutionaryArmyDetailForm">
+
+                    <angular-editor id="angularEditor" [config]="editorConfig" formControlName="htmlContent">
+                        <ng-template #customButtons let-executeCommandFn="executeCommandFn">
+                            <ae-toolbar-set>
+                                <ae-button iconClass="fa fa-html5" title="Angular editor logo"
+                                    (buttonClick)="executeCommandFn('insertHtml', angularEditorLogo)">
+                                </ae-button>
+                            </ae-toolbar-set>
+                        </ng-template>
+                    </angular-editor>
+                </form>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-flat-button (click)="closeForm()">Cancel</button>
+                <button style="margin-left: 10px;" mat-flat-button color="primary"
+                    [disabled]="!revolutionaryArmyDetailForm.valid || !revolutionaryArmyDetailForm.dirty"
+                    (click)="saveForm()">Save</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>

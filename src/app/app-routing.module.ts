@@ -6,7 +6,8 @@ import { PirateCrewListComponent } from './pirate-crew/pirate-crew-list/pirate-c
 import { PirateCrewDetailComponent } from './pirate-crew/pirate-crew-detail/pirate-crew-detail.component';
 import { PiratesListComponent } from './pirates/pirates-list/pirates-list.component';
 import { PiratesDetailComponent } from './pirates/pirates-detail/pirates-detail.component';
-import { RevolutionaryArmyComponent } from './revolutionary-army/revolutionary-army.component';
+import { RevolutionaryArmyDetailsComponent } from './revolutionary-army/revolutionary-army-details/revolutionary-army-details.component';
+import { RevolutionaryArmyListComponent } from './revolutionary-army/revolutionary-army-list/revolutionary-army-list.component';
 import { HomeComponent } from './home/home.component';
 
 
@@ -61,8 +62,18 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
+    path: 'revolutionary-army/create',
+    component: RevolutionaryArmyDetailsComponent,
+    pathMatch: 'full',
+  },
+  {
     path: 'revolutionary-army',
-    component: RevolutionaryArmyComponent,
+    component: RevolutionaryArmyListComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'revolutionary-army/:id',
+    component: RevolutionaryArmyDetailsComponent,
     pathMatch: 'full',
   }
 
