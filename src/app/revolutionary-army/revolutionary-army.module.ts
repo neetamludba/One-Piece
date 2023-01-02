@@ -14,6 +14,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatSortModule } from '@angular/material/sort';
 import { RouterModule } from '@angular/router';
 import { MatDialogModule } from '@angular/material/dialog';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatCardModule,
     MatSortModule,
     RouterModule,
-    MatDialogModule
+    MatDialogModule,
+    HttpClientModule
 
   ]
 })
